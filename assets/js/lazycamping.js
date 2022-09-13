@@ -10,7 +10,7 @@ window.onload = function () {
         let lycItem = ` <div class="item">
                                 <div class="product-box">
                                     <div class="product-media">
-                                        <img class="prod-img" alt="" src="assets/img/products/1.png"/>
+                                        <img class="prod-img" alt="" src="assets/img/products/${lyc.png}"/>
                                         <img class="shape" alt="" src="assets/img/icons/shap-small.png"/>
                                         <div class="prod-icons">
                                             <a class="fa fa-heart" onclick="clickLike(this)" id="${lyc.id}">1</a>
@@ -20,11 +20,11 @@ window.onload = function () {
                                     </div>
                                     <div class="product-caption">
                                         <h3 class="product-title">
-                                            <a href="#"> <span class="light-font"> organic </span>
+                                            <a href="#"> <span class="light-font"> ${lyc.name} </span>
                                                 <strong>tomato</strong></a>
                                         </h3>
                                         <div class="price">
-                                            <strong class="clr-txt">$50.00 </strong>
+                                            <strong class="clr-txt">￥${lyc.zj_price} </strong>
                                         </div>
                                     </div>
                                 </div>

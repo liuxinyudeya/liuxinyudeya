@@ -71,8 +71,8 @@
                         <li><a href="index.html"> 主页</a></li>
                         <li><a href="about-us.html">关于我们</a></li>
                         <li><a href="shop.html"> 商品</a></li>
-                        <li><a href="shop-single.html"> shop single </a></li>
-                        <li><a href="my-account.html">我的</a></li>
+                        <li><a href="shop-single.html">露营攻略</a></li>
+                        <li><a href="my-account.html">我的订单</a></li>
                         <li><a href="contact.html">联系我们</a></li>
                     </ul>
                 </nav>
@@ -330,13 +330,13 @@
                 <div class="tabs-box">
                     <ul class="theme-tabs">
                         <li class=""><a href="#product-tab-1" data-toggle="tab"> <span
-                                class="light-font">organic </span> <strong>fruits </strong> </a></li>
+                                class="light-font">基础：</span> <strong>营地车 </strong> </a></li>
                         <li class="active"><a href="#product-tab-2" data-toggle="tab"> <span
-                                class="light-font">organic </span> <strong>vegetables </strong> </a></li>
+                                class="light-font">基础：</span> <strong>帐篷 </strong> </a></li>
                         <li class=""><a href="#product-tab-3" data-toggle="tab"> <span
-                                class="light-font">organic </span> <strong>juices </strong> </a></li>
+                                class="light-font">基础：</span> <strong>天幕 </strong> </a></li>
                         <li class=""><a href="#product-tab-4" data-toggle="tab"> <span
-                                class="light-font">organic </span> <strong>dried fruits </strong> </a></li>
+                                class="light-font">基础：</span> <strong>桌椅 </strong> </a></li>
                     </ul>
                 </div>
             </div>
@@ -345,7 +345,7 @@
             <div class="col-md-12">
                 <div class="tab-content organic-content row">
                     <div id="product-tab-1" class="tab-pane fade active in">
-                        <div class="product-slider-1 dots-1">
+                        <div class="product-slider-1 dots-1" id="lycList_1">
 
                             <div class="item">
                                 <div class="product-box">
@@ -353,7 +353,7 @@
                                         <img class="prod-img" alt="" src="assets/img/products/1.png"/>
                                         <img class="shape" alt="" src="assets/img/icons/shap-small.png"/>
                                         <div class="prod-icons">
-                                            <a class="fa fa-heart" onclick="clickLike()">1</a>
+                                            <a class="fa fa-heart" onclick="clickLike(this)" id="lyc-1">1</a>
                                             <a href="#" class="fa fa-shopping-basket">2</a>
                                             <a href="#product-preview" data-toggle="modal" class="fa fa-expand">3</a>
                                         </div>
@@ -5389,6 +5389,9 @@
 <script src="assets/js/plugin/jquery.plugin.min.js"></script>
 <script src="assets/js/plugin/jquery.countdown.js"></script>
 <script src="assets/js/plugin/jquery.subscribe-better.min.js"></script>
+
+<!-- json Data -->
+<script src="assets/js/data.js"></script>
 
 <!-- Custom JS -->
 <script src="assets/js/theme.js"></script>

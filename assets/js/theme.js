@@ -69,9 +69,9 @@ $(function() {
 
             }
         });
-        $('.ui-slider-range').append('<span class="price-range-both value"><i>$' + price_range.slider('values', 0) + ' - </i>' + price_range.slider('values', 1) + '</span>');
-        $('.ui-slider-handle:eq(0)').append('<span class="price-range-min value">$' + price_range.slider('values', 0) + '</span>');
-        $('.ui-slider-handle:eq(1)').append('<span class="price-range-max value">$' + price_range.slider('values', 1) + '</span>');
+        $('.ui-slider-range').append('<span class="price-range-both value"><i>￥' + price_range.slider('values', 0) + ' - </i>' + price_range.slider('values', 1) + '</span>');
+        $('.ui-slider-handle:eq(0)').append('<span class="price-range-min value">￥' + price_range.slider('values', 0) + '</span>');
+        $('.ui-slider-handle:eq(1)').append('<span class="price-range-max value">￥' + price_range.slider('values', 1) + '</span>');
     }
 });
 

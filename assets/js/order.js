@@ -54,8 +54,7 @@ function fnClickBye(id,type){
     console.log("fnClickBye")
     console.log(id)
     console.log(type)
-    console.log( shopList.lycList )
-    console.log( shopList['lycList'] )
+
 
 
 

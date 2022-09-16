@@ -1,6 +1,6 @@
-var shopList =
+var orderList =
     {
-        "lycList": [
+        "liuxy": [
             {
                 "id": "lyc_1",
                 "type": "lyc",
@@ -46,9 +46,17 @@ var shopList =
                 "yj_price": "500"
             }
         ]
-        ,"tmList":[
-            {id:'tm_1'}
-            ,{id:'tm_2'}
-        ]
 
     }
+
+
+function fnClickBye(id,type){
+    console.log("fnClickBye")
+    console.log(id)
+    console.log(type)
+    console.log( shopList.lycList )
+    console.log( shopList['lycList'] )
+
+
+
+}

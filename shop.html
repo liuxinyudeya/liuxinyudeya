@@ -125,69 +125,26 @@
             </div>
 
             <div class="col-lg-2 col-sm-4 cart-megamenu">
-                <div class="cart-hover">
+                <div class="cart-hover" id="orderView">
                     <a href="#"> <img alt="" src="assets/img/icons/cart-icon.png"/> </a>
-                    <span class="cnt crl-bg">2</span> <span class="price">$2.170.00</span>
-                    <ul class="pop-up-box cart-popup">
-                        <li class="cart-list">
-                            <div class="cart-img"><img src="assets/img/extra/cart-sm-1.jpg" alt=""></div>
-                            <div class="cart-title">
-                                <div class="fsz-16">
-                                    <a href="#"> <span class="light-font"> organic </span> <strong>almonds</strong></a>
-                                    <h6 class="sub-title-1">DRY FRUITS</h6>
-                                </div>
-                                <div class="price">
-                                    <strong class="clr-txt">$50.00 </strong>
-                                    <del class="light-font">$65.00</del>
-                                </div>
-                            </div>
-                            <div class="close-icon"><i class="fa fa-close clr-txt"></i></div>
-                        </li>
-
-                        <li class="cart-list">
-                            <div class="cart-img"><img src="assets/img/extra/cart-sm-2.jpg" alt=""></div>
-                            <div class="cart-title">
-                                <div class="fsz-16">
-                                    <a href="#"> <span class="light-font"> organic </span> <strong>pepper</strong></a>
-                                    <h6 class="sub-title-1">VEGETABLES</h6>
-                                </div>
-                                <div class="price">
-                                    <strong class="clr-txt">$50.00 </strong>
-                                    <del class="light-font">$65.00</del>
-                                </div>
-                            </div>
-                            <div class="close-icon"><i class="fa fa-close clr-txt"></i></div>
-                        </li>
-
-                        <li class="cart-list">
-                            <div class="cart-img"><img src="assets/img/extra/cart-sm-3.jpg" alt=""></div>
-                            <div class="cart-title">
-                                <div class="fsz-16">
-                                    <a href="#"> <span class="light-font"> organic </span> <strong>onion</strong></a>
-                                    <h6 class="sub-title-1">VAGETABLES</h6>
-                                </div>
-                                <div class="price">
-                                    <strong class="clr-txt">$50.00 </strong>
-                                    <del class="light-font">$65.00</del>
-                                </div>
-                            </div>
-                            <div class="close-icon"><i class="fa fa-close clr-txt"></i></div>
-                        </li>
-
+                    <span class="cnt crl-bg">0</span> <span class="price">$0.00</span>
+                    <ul class="pop-up-box cart-popup"  >
                         <li class="cart-list sub-total">
                             <div class="pull-left">
-                                <strong>Subtotal</strong>
+                                <strong>总计</strong>
                             </div>
                             <div class="pull-right">
-                                <strong class="clr-txt">$150.00</strong>
+                                <strong class="clr-txt">￥ 0 </strong>
+                                <del class="light-font">￥ 0</del>
                             </div>
                         </li>
                         <li class="cart-list buttons">
                             <div class="pull-left">
-                                <a href="cart.html" class="theme-btn-sm-2">View Cart</a>
+<!--                                <a href="#orderView_new" class="theme-btn-sm-2"  >下单</a>-->
+                                <a  href="#orderView_new" data-toggle="modal" class="theme-btn-sm-2">下单</a>
                             </div>
                             <div class="pull-right">
-                                <a href="checkout.html" class="theme-btn-sm-3"> Checkout </a>
+                                <a href="javascript:void(0)" class="theme-btn-sm-3"> 退出 </a>
                             </div>
                         </li>
                     </ul>
@@ -368,8 +325,8 @@
                                     onchange="fnSelectOption(this)">
                                 <option value="all" selected>所有产品</option>
                                 <option value="lycList">露 营 车</option>
-                                <option value="zp">帐 篷</option>
-                                <option value="tm">天幕</option>
+                                <option value="lytmList">露营天幕</option>
+                                <!--<option value="zp">帐 篷</option>
                                 <option value="lyz">露营桌</option>
                                 <option value="lyy">露营椅</option>
                                 <option value="lyd">露营灯</option>
@@ -398,7 +355,7 @@
                                 <option value="all">灯锅挂架</option>
                                 <option value="all">鲜花、气球</option>
                                 <option value="all">露营箱</option>
-                                <option value="all">免费搭配</option>
+                                <option value="all">免费搭配</option>-->
                             </select>
                         </div>
                     </div>
@@ -437,7 +394,12 @@
             <div class="divider-full-1"></div>
 
             <div class="result-bar block-inline">
-                <h4 class="result-txt"> 相 关 结 果 <b> 125 </b></h4>
+                <h4 class="result-txt"> 相 关 结 果 <b id="resultCount">
+                    <script>
+                        document.getElementById("resultCount").innerText = resultCount
+                    </script>
+
+                </b></h4>
                 <ul class="view-tabs">
                     <li class="active">
                         <a href="#grid-view" data-toggle="tab">
@@ -455,9 +417,7 @@
             <div class="tab-content shop-content">
                 <div id="grid-view" class="tab-pane fade active in" role="tabpanel">
                     <div class="row" id="grid-view-detail">
-
                         <script>
-                            console.log("grid_view_detail:"+selectedOption)
                             appendHtml = ''
                             grid_view_detail = document.getElementById("grid-view-detail")
                             currentShopList.forEach(item => {
@@ -467,8 +427,8 @@
                                             <img class="prod-img" alt="" src="${item.png}" />
                                             <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
                                             <div class="prod-icons">
-                                                <a href="#" class="fa fa-heart"></a>
-                                                <a href="#" class="fa fa-shopping-basket" onclick="fnClickBye('${item.id}')"></a>
+                                                <a href="javascript:void(0)" class="fa fa-heart"></a>
+                                                <a href="javascript:void(0)" class="fa fa-shopping-basket" onclick="fnClickBye('${item.id}')"></a>
                                                 <a  href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
                                             </div>
                                         </div>
@@ -485,8 +445,6 @@
                             })
                             grid_view_detail.innerHTML = appendHtml
                         </script>
-
-
                     </div>
 
                     <div class="rel-div pt-50">
@@ -512,10 +470,7 @@
 
                 <div id="list-view" class="tab-pane fade" role="tabpanel">
                     <div class="row" id="list-view-detail">
-
                         <script>
-                            console.log("list_view_detail:"+selectedOption)
-
                             appendHtml = ''
                             list_view_detail = document.getElementById("list-view-detail")
                             currentShopList.forEach(item => {
@@ -523,8 +478,8 @@
                                 <div class="col-md-6 col-sm-12">
                                   <div class="deal-item list-view">
                                       <div class="deal-icons">
-                                          <a href="#" class="fa fa-heart"></a>
-                                          <a href="#" class="fa fa-shopping-basket"  onclick="fnClickBye('${item.id}')"></a>
+                                          <a href="javascript:void(0)" class="fa fa-heart"></a>
+                                          <a href="javascript:void(0)" class="fa fa-shopping-basket"  onclick="fnClickBye('${item.id}')"></a>
                                           <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
                                       </div>
                                       <div class="deal-content">
@@ -541,149 +496,13 @@
                                                   <del class="light-font">￥${item.yj_price}</del>
                                               </div>
                                           </div>
-                                          <div class="img"><img alt="" src="assets/img/products/3.png"></div>
+                                          <div class="img"><img alt="" src="${item.png}"></div>
                                       </div>
                                   </div>
                               </div>`
                             })
                             list_view_detail.innerHTML = appendHtml
                         </script>
-
-
-                        <!-- <div class="col-md-6 col-sm-12">
-                             <div class="deal-item list-view">
-                                 <div class="deal-icons">
-                                     <a href="#" class="fa fa-heart"></a>
-                                     <a href="#" class="fa fa-shopping-basket"></a>
-                                     <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                 </div>
-                                 <div class="deal-content">
-                                     <div class="text-right">
-                                         <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
-                                     </div>
-                                     <div class="deal-text">
-                                         <h4 class="sub-title"> ORGANIC FRUITS </h4>
-                                         <h2 class="fsz-30 pb-15"><a href="#"> <span class="light-font">fresh </span>
-                                             <strong>cherry </strong> </a></h2>
-                                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                             nonummy...</p>
-                                         <div class="price pt-15">
-                                             <strong class="clr-txt">$50.00 </strong>
-                                             <del class="light-font">$65.00</del>
-                                         </div>
-                                     </div>
-                                     <div class="img"><img alt="" src="assets/img/products/3.png"></div>
-                                 </div>
-                             </div>
-                         </div>
-
-                         <div class="col-md-6 col-sm-12">
-                             <div class="deal-item list-view">
-                                 <div class="deal-icons">
-                                     <a href="#" class="fa fa-heart"></a>
-                                     <a href="#" class="fa fa-shopping-basket"></a>
-                                     <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                 </div>
-                                 <div class="deal-content">
-                                     <div class="text-right">
-                                         <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
-                                     </div>
-                                     <div class="deal-text">
-                                         <h4 class="sub-title"> ORGANIC FRUITS </h4>
-                                         <h2 class="fsz-30 pb-15"><a href="#"> <span class="light-font">fresh </span>
-                                             <strong>mushroom </strong> </a></h2>
-                                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                             nonummy...</p>
-                                         <div class="price pt-15">
-                                             <strong class="clr-txt">$50.00 </strong>
-                                             <del class="light-font">$65.00</del>
-                                         </div>
-                                     </div>
-                                     <div class="img"><img alt="" src="assets/img/products/7.png"></div>
-                                 </div>
-                             </div>
-                         </div>
-
-                         <div class="col-md-6 col-sm-12">
-                             <div class="deal-item list-view">
-                                 <div class="deal-icons">
-                                     <a href="#" class="fa fa-heart"></a>
-                                     <a href="#" class="fa fa-shopping-basket"></a>
-                                     <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                 </div>
-                                 <div class="deal-content">
-                                     <div class="text-right">
-                                         <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
-                                     </div>
-                                     <div class="deal-text">
-                                         <h4 class="sub-title"> ORGANIC FRUITS </h4>
-                                         <h2 class="fsz-30 pb-15"><a href="#"> <span class="light-font">fresh </span>
-                                             <strong>pepper </strong> </a></h2>
-                                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                             nonummy...</p>
-                                         <div class="price pt-15">
-                                             <strong class="clr-txt">$50.00 </strong>
-                                             <del class="light-font">$65.00</del>
-                                         </div>
-                                     </div>
-                                     <div class="img"><img alt="" src="assets/img/products/8.png"></div>
-                                 </div>
-                             </div>
-                         </div>
-
-                         <div class="col-md-6 col-sm-12">
-                             <div class="deal-item list-view">
-                                 <div class="deal-icons">
-                                     <a href="#" class="fa fa-heart"></a>
-                                     <a href="#" class="fa fa-shopping-basket"></a>
-                                     <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                 </div>
-                                 <div class="deal-content">
-                                     <div class="text-right">
-                                         <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
-                                     </div>
-                                     <div class="deal-text">
-                                         <h4 class="sub-title"> ORGANIC FRUITS </h4>
-                                         <h2 class="fsz-30 pb-15"><a href="#"> <span class="light-font">fresh </span>
-                                             <strong>cabbage </strong> </a></h2>
-                                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                             nonummy...</p>
-                                         <div class="price pt-15">
-                                             <strong class="clr-txt">$50.00 </strong>
-                                             <del class="light-font">$65.00</del>
-                                         </div>
-                                     </div>
-                                     <div class="img"><img alt="" src="assets/img/products/2.png"></div>
-                                 </div>
-                             </div>
-                         </div>
-
-                         <div class="col-md-6 col-sm-12">
-                             <div class="deal-item list-view">
-                                 <div class="deal-icons">
-                                     <a href="#" class="fa fa-heart"></a>
-                                     <a href="#" class="fa fa-shopping-basket"></a>
-                                     <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
-                                 </div>
-                                 <div class="deal-content">
-                                     <div class="text-right">
-                                         <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">sale</span>
-                                     </div>
-                                     <div class="deal-text">
-                                         <h4 class="sub-title"> ORGANIC FRUITS </h4>
-                                         <h2 class="fsz-30 pb-15"><a href="#"> <span class="light-font">fresh </span>
-                                             <strong>salad </strong> </a></h2>
-                                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                             nonummy...</p>
-                                         <div class="price pt-15">
-                                             <strong class="clr-txt">$50.00 </strong>
-                                             <del class="light-font">$65.00</del>
-                                         </div>
-                                     </div>
-                                     <div class="img"><img alt="" src="assets/img/products/4.png"></div>
-                                 </div>
-                             </div>
-                         </div>-->
                     </div>
 
                     <div class="rel-div pt-50">
@@ -919,6 +738,48 @@
         </div>
     </div>
 </section>
+
+<section class="modal fade" id="orderView_new" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg product-modal">
+        <div class="modal-content">
+            <a aria-hidden="true" data-dismiss="modal" class="sb-close-btn close" href="#">
+                <i class=" fa fa-close"></i>
+            </a>
+
+            <div class="product-single pb-50 clearfix">
+
+
+                <div class="col-lg-12 pt-50">
+                    <div class="product-content block-inline">
+
+                        <div class="tag-rate">
+                            <span class="prod-tag tag-1" style="width: 110px;">2022/09/17</span>
+                            <span class="prod-tag tag-2" style="width: 80px;">liuxy</span>
+                            <span class="prod-tag" style="background-color:#3e7a4c;width: 150px">15948372001</span>
+
+                        </div>
+
+                        <div class="single-caption">
+                            <h3 class="section-title">
+                                <a href="#"> <span class="light-font"> organic </span> <strong>pinapple</strong></a>
+                            </h3>
+                            <span class="divider-2"></span>
+                            <div id="imgView"></div>
+
+                            <div class="divider-full-1"></div>
+                            <div class="add-cart pt-30">
+                                <a href="javascript:void(0)" class="theme-btn btn" onclick="saveImage()"> <strong> 保存图片 </strong> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
 <!-- / Product Preview Popup -->
 
 <!-- JS Global -->
@@ -927,7 +788,7 @@
 <script src="assets/js/plugin/bootstrap-select.min.js"></script>
 <script src="assets/js/plugin/owl.carousel.min.js"></script>
 <script src="assets/js/plugin/jquery-ui.min.js"></script>
-
+<script src="assets/js/plugin/html2canvas.min.js"></script>
 <!-- Custom JS -->
 <script src="assets/js/theme.js"></script>
 
@@ -935,16 +796,83 @@
     $(function () {
         console.log("进入 商品 页面")
         //TODO　默认选中所有商品
-        currentShopList = shopList.lycList
+        // currentShopList = shopList.lycList
     })
 
     function fnSelectOption(data) {
-
         console.log("fnSelectShopCat: 选择了一类产品")
         selectedOption = $(data).val()
         console.log(selectedOption)
-        currentShopList = shopList[selectedOption]
 
+        currentShopList = shopList[selectedOption]
+        console.log(currentShopList)
+        initGridAndListview()
+
+    }
+
+
+    function initGridAndListview() {
+        appendHtml = ''
+        grid_view_detail = document.getElementById("grid-view-detail")
+        currentShopList.forEach(item => {
+            appendHtml += ` <div class="col-lg-3 col-md-4 col-sm-6">
+                                    <div class="product-box">
+                                        <div class="product-media">
+                                            <img class="prod-img" alt="" src="${item.png}" />
+                                            <img class="shape" alt="" src="assets/img/icons/shap-small.png" />
+                                            <div class="prod-icons">
+                                                <a href="javascript:void(0)" class="fa fa-heart"></a>
+                                                <a href="javascript:void(0)" class="fa fa-shopping-basket" onclick="fnClickBye('${item.id}')"></a>
+                                                <a  href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-caption">
+                                            <h3 class="product-title">
+                                                <a href="#"> <span class="light-font"> 崭新 </span>  <strong>${item.name}</strong></a>
+                                            </h3>
+                                            <div class="price">
+                                                <strong class="clr-txt">￥${item.zj_price} </strong> <del class="light-font">￥${item.yj_price} </del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`
+        })
+        grid_view_detail.innerHTML = appendHtml
+
+        appendHtml = ''
+        list_view_detail = document.getElementById("list-view-detail")
+        currentShopList.forEach(item => {
+            console.log(item.png)
+            appendHtml += `
+                                <div class="col-md-6 col-sm-12">
+                                  <div class="deal-item list-view">
+                                      <div class="deal-icons">
+                                          <a href="javascript:void(0)" class="fa fa-heart"></a>
+                                          <a href="javascript:void(0)" class="fa fa-shopping-basket"  onclick="fnClickBye('${item.id}')"></a>
+                                          <a href="#product-preview" data-toggle="modal" class="fa fa-expand"></a>
+                                      </div>
+                                      <div class="deal-content">
+                                          <div class="text-right">
+                                              <span class="prod-tag tag-1">new</span> <span class="prod-tag tag-2">${item.sale_state}</span>
+                                          </div>
+                                          <div class="deal-text">
+                                              <h4 class="sub-title"> ${item.type_name} </h4>
+                                              <h2 class="fsz-30 pb-15"><a href="#"> <span class="light-font">崭新 </span>
+                                                  <strong>${item.name} </strong> </a></h2>
+                                              <p> ${item.content} </p>
+                                              <div class="price pt-15">
+                                                  <strong class="clr-txt">￥${item.zj_price} </strong>
+                                                  <del class="light-font">￥${item.yj_price}</del>
+                                              </div>
+                                          </div>
+                                          <div class="img"><img alt="" src="${item.png}"></div>
+                                      </div>
+                                  </div>
+                              </div>`
+        })
+        list_view_detail.innerHTML = appendHtml
+
+        document.getElementById("resultCount").innerText = currentShopList.length
     }
 </script>
 </body>

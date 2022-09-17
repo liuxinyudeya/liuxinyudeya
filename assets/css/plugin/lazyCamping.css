@@ -1,0 +1,14 @@
+.prod-tag {
+    border-radius: 2em;
+    color: #fff;
+    display: inline-block;
+    font-size: 10px;
+    height: 22px;
+    letter-spacing: 2px;
+    line-height: 18px;
+    margin: 50px 3px auto;
+    padding: 2px 15px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 70px;
+}
